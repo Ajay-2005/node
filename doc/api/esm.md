@@ -299,6 +299,8 @@ The `type: 'json'` attribute is mandatory when importing JSON modules.
 
 ## Built-in modules
 
+> **Note:** Built-in modules imported via ESM are eagerly evaluated and fully populated at load time. In CommonJS, module exports can be modified dynamically.
+
 [Built-in modules][] provide named exports of their public API. A
 default export is also provided which is the value of the CommonJS exports.
 The default export can be used for, among other things, modifying the named

@@ -299,7 +299,10 @@ The `type: 'json'` attribute is mandatory when importing JSON modules.
 
 ## Built-in modules
 
-> **Note:** When importing built-in modules via ESM , the module is fully evaluated at import time, and all properties are populated immediately. This can make initial imports slightly slower compared to CommonJS, where the module body is still evaluated eagerly but some built-in properties are only initialized when first accessed.
+> When importing built-in modules, all the named exports (i.e. properties of the module exports object) are populated even if they are not individually accessed.
+> This can make initial imports of built-in modules slightly slower compared to loading them with
+> `require()` or `process.getBuiltinModule()`, where the module exports object is evaluated immediately,
+> but some of its properties may only be initialized when first accessed individually.
 
 [Built-in modules][] provide named exports of their public API. A
 default export is also provided which is the value of the CommonJS exports.
